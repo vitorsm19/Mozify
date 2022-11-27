@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #FFFFFF;
+}
+
+.Splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #262B35;
+  ;
+}
+
+.splash-text {
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 24rem;
+  background-color: transparent;
+  width: 100%;
+  z-index: 99999;
+}
+
+
+.logo {
+  color: #051A37;
+  pointer-events: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+
+}
+
+.nav__links li {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.nav__links li a,
+.nav__links li a:visited {
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+  color: #051A37;
+
+}
+
+.movies-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  background: #FFFFFF;
+  padding: 1rem 24rem;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.5rem;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 315px;
+  width: 170px;
+  border: 1px solid #E5E5E5;
+  border-radius: 10px;
+}
+
+.movie-card:hover, .nav__links svg:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 248px;
+}
+
+.card-image img {
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 67px;
+  width: 100%;
+  padding: 0 1rem;
+  gap: 0.5rem 0;
+}
+
+.card-content h4 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  max-width: 17ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #051A37;
+
+}
+
+.card-content span {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #8194A5;
+}
+
+.card-content span svg,
+.card-content a,
+.card-content a:visited {
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding-right: 0.25rem;
+  color: #8194A5;
+}
+
+.card-content a,
+.card-content a:visited {
+  padding: 0;
+}
+
+.card-content-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+#greeting {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 24rem;
+  background-color: transparent;
+  width: 100%;
+  gap: 0.25rem 0;
+}
+
+.greeting-title {
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #051A37;
+}
+
+.greeting-subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  color: #8194A5;
+
+}
