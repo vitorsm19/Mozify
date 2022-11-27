@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
 import "../App.css";
+import Greeting from "../components/Greeting.jsx";
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 const moviesIMG = import.meta.env.VITE_IMG;
 
-const MovieCard = () => {
+const MovieCard = ({movieType}) => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const getTopRatedMovies = async (url) => {
     const response = await fetch(url);
@@ -38,49 +39,66 @@ const MovieCard = () => {
     getPopularMovies(popularMoviesURL);
   }, []);
 
-  const getInitialState = () => {
-    const movieType = "popular";
-    return movieType;
-  };
 
-  const [movieType, setMovieType] = useState(getInitialState);
+  
+  return (
+    <>
 
-  const handleChange = (e) => {
-    setMovieType(e.target.value);
-  };
+      {movieType === "popularMovies"
+        ? popularMovies &&
+          popularMovies.map((movie) => {
+            return (
+              <div className="movie-card" key={movie.id}>
+                <div className="card-image">
+                  <img
+                    src={`${moviesIMG}${movie.poster_path}`}
+                    alt="{movie.title}"
+                  />
+                </div>
 
-  <>
-    <select value={movieType} onChange={handleChange}>
-      <option value="popularMovies">Popular</option>
-      <option value="topRatedMovies">Top Rated</option>
-    </select>
-  </>;
+                <Link to={`/movie/${movie.id}`} className="card-content">
+                  <h4>{movie.title}</h4>
+                  <div className="card-content-info">
+                    <span>
+                      <FontAwesomeIcon icon={faStar} />
+                      {movie.vote_average}
+                    </span>
+                    <span>
+                      <FontAwesomeIcon icon={faAngleRight} />
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            );
+          })
+        : topRatedMovies &&
+          topRatedMovies.map((movie) => {
+            return (
+              <div className="movie-card" key={movie.id}>
+                <div className="card-image">
+                  <img
+                    src={`${moviesIMG}${movie.poster_path}`}
+                    alt="{movie.title}"
+                  />
+                </div>
 
-  {topRatedMovies &&
-    topRatedMovies.map((movie) => {
-      return (
-        <div className="movie-card" key={movie.id}>
-          <div className="card-image">
-            <img src={`${moviesIMG}${movie.poster_path}`} alt="{movie.title}" />
-          </div>
-
-          <Link to={`/movie/${movie.id}`} className="card-content">
-            <h4>{movie.title}</h4>
-            <div className="card-content-info">
-              <span>
-                <FontAwesomeIcon icon={faStar} />
-                {movie.vote_average}
-              </span>
-              <span>
-                <FontAwesomeIcon icon={faAngleRight} />
-              </span>
-            </div>
-          </Link>
-        </div>
-      );
-    });}
-
-
+                <Link to={`/movie/${movie.id}`} className="card-content">
+                  <h4>{movie.title}</h4>
+                  <div className="card-content-info">
+                    <span>
+                      <FontAwesomeIcon icon={faStar} />
+                      {movie.vote_average}
+                    </span>
+                    <span>
+                      <FontAwesomeIcon icon={faAngleRight} />
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+    </>
+  );
 };
 
 export default MovieCard;

@@ -95,7 +95,8 @@ a:visited {
   border-radius: 10px;
 }
 
-.movie-card:hover, .nav__links svg:hover {
+.movie-card:hover,
+.nav__links svg:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -174,9 +175,10 @@ a:visited {
 
 #greeting {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 0.75rem 24rem;
   background-color: transparent;
+  justify-content: space-between;
   width: 100%;
   gap: 0.25rem 0;
 }
@@ -197,7 +199,66 @@ a:visited {
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
-
   color: #8194A5;
+}
 
+.dropdown-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 1rem;
+  height: 386px;
+  width: 343px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.dropdown-card ul {
+  list-style: none;
+  text-decoration: none;
+}
+
+.dropdown-card h3 {
+font-size: 24px;
+font-weight: 700;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+padding: 1rem 1rem;
+}
+
+.dropdown-items{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem 1rem;
+  gap: 1rem 0;
+  width: 100%;
+}
+
+.dropdown-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+    cursor: pointer;
+    height:75px;
+    width: 100%;
+    background: #051A37;
+border-radius: 12px;
+  color: #FFFFFF;
+  font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 19px;
+gap: 0 1rem;
+}
+
+.dropdown-item:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }

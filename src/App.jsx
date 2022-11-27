@@ -3,7 +3,6 @@ import { SplashIcon, SplashText, Splash } from "./components/Splash.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, Outlet } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar.jsx";
 import Home from "./Pages/Home.jsx";
 
 function App() {
@@ -17,14 +16,13 @@ function App() {
   }, []);
 
 
-  
+
   return (
     <div className="App">
       {loading ? (
         <Splash />
       ) : (
         <>
-          <Navbar />
           <Home />
         </>
       )}

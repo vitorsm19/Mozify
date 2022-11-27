@@ -26,28 +26,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-// const getInitialState = () => {
-//   const movieType = "popular";
-//   return movieType;
-// };
-
-// const [movieType setMovieType] = useState(getInitialState);
-
-// const handleChange = (e) => {
-//   setMovieType(e.target.value);
-// };
-
-// <>
-//   <select value={movieType} onChange={handleChange}>
-//     <option value="popularMovies">Popular</option>
-//     <option value="topRatedMovies">Top Rated</option>
-//     </select>
-// </>
-
-// {
-//   movieType === "popularMovies" ? (
-//     topRatedMovies.length > 0 && 
-//     topRatedMovies.map((movie) => {
-//       return (
-// }
