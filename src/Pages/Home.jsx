@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar.jsx";
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
-const moviesIMG = import.meta.env.VITE_IMG;
+const moviesIMG = import.meta.env.VITE_IMG_CARDS;
 
 import "../App.css";
 

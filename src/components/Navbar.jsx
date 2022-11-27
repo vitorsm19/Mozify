@@ -35,17 +35,17 @@ const Navbar = ({ setMovieType }) => {
   return (
     <header id="header">
       <Link to="/">
-        <h3 className={`${dropdown ? "logo" : "logo"}`}>Mozify</h3>
+        <h3 className="logo">Mozify</h3>
       </Link>
 
       <nav id="nav-bar">
         <ul className="nav__links">
-          <li className="nav-link">
+          <li className="nav-link hidden-movie">
             <Link to="/favorites">
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
-          <li className="nav-link" onClick={() => setDropdown(!dropdown)}>
+          <li className="nav-link hidden-movie" onClick={() => setDropdown(!dropdown)}>
             <FontAwesomeIcon icon={faSliders} ref={iconRef} />
           </li>
 
