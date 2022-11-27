@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Lato', sans-serif;
+  user-select: none;
 }
 
 a,
@@ -213,8 +214,12 @@ a:visited {
   border-radius: 12px;
   border: 1px solid #e5e5e5;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-
+  position: absolute;
+  top: 4rem;
+  right: 23rem;
+  background-color: #FFFFFF;
 }
+
 
 .dropdown-card ul {
   list-style: none;
@@ -222,18 +227,18 @@ a:visited {
 }
 
 .dropdown-card h3 {
-font-size: 24px;
-font-weight: 700;
-line-height: 29px;
-letter-spacing: 0em;
-text-align: left;
-padding: 1rem 1rem;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 1rem 1rem;
 }
 
-.dropdown-items{
+.dropdown-items {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   padding: 1rem 1rem;
   gap: 1rem 0;
@@ -246,19 +251,38 @@ padding: 1rem 1rem;
   align-items: center;
   justify-content: center;
   padding: 1rem 1rem;
-    cursor: pointer;
-    height:75px;
-    width: 100%;
-    background: #051A37;
-border-radius: 12px;
+  cursor: pointer;
+  height: 60px;
+  width: 280px;
+  background: #051A37;
+  border-radius: 12px;
   color: #FFFFFF;
   font-style: normal;
-font-weight: 500;
-font-size: 20px;
-line-height: 19px;
-gap: 0 1rem;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 19px;
 }
 
 .dropdown-item:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.dropdown-item-content h4 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 0 0.25rem;
+  width: 220px;
+}
+
+.dropdown-item-content p {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #DDE3E8;
+  padding: 0 0.25rem;
 }

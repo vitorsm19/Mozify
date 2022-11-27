@@ -7,6 +7,9 @@ import MovieCard from "../components/MovieCard.jsx";
 import Greeting from "../components/Greeting.jsx";
 import Navbar from "../components/Navbar.jsx";
 
+const moviesURL = import.meta.env.VITE_API;
+const apiKey = import.meta.env.VITE_API_KEY;
+const moviesIMG = import.meta.env.VITE_IMG;
 
 import "../App.css";
 
@@ -17,8 +20,8 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
-      <Greeting setMovieType={setMovieType} />
+      <Navbar setMovieType={setMovieType}/>
+      <Greeting  />
       <section className="movies-section">
         <MovieCard movieType={movieType} />
       </section>

@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
@@ -8,17 +8,34 @@ import {
   faBars,
   faClose,
   faArrowCircleUp,
-  faHeart
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
+import MovieCard from "../components/MovieCard.jsx";
+
 import "../App.css";
 
-const Navbar = () => {
-  const dropdownItems = ["Popular", "Top Rated"];
+const Navbar = ({ setMovieType }) => {
+  const navigate = useNavigate();
+
+  const [dropdown, setDropdown] = useState(false);
+
+  const onButtonClick = (movieType) => {
+    setMovieType(movieType);
+  };
+
+  const menuRef = useRef();
+  const iconRef = useRef();
+
+  window.addEventListener("click", (e) => {
+    if (e.target !== menuRef.current && e.target !== iconRef.current) {
+      setDropdown(false);
+    }
+  });
 
   return (
     <header id="header">
       <Link to="/">
-        <h3 className="logo">Mozify</h3>
+        <h3 className={`${dropdown ? "logo" : "logo"}`}>Mozify</h3>
       </Link>
 
       <nav id="nav-bar">
@@ -28,28 +45,49 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
-          <li className="nav-link">
-            <FontAwesomeIcon icon={faSliders} />
+          <li className="nav-link" onClick={() => setDropdown(!dropdown)}>
+            <FontAwesomeIcon icon={faSliders} ref={iconRef} />
           </li>
 
-          <div className="dropdown-card">
-            <h3>In which order would you like me to list the movies?</h3>
+          {dropdown && (
+            <div className="dropdown-card">
+              <h3>In which order would you like me to list the movies?</h3>
 
-            <div className="dropdown-items">
-            {dropdownItems.map((dropdownItem) => (
-              <div className="dropdown-item" key={dropdownItem} >
-                {dropdownItem}
-                {dropdownItem === "Popular" ? (
-                <FontAwesomeIcon icon={faArrowCircleUp} />
-                ) : (
-                <FontAwesomeIcon icon={faStar} />
-                )}
-              </div>
-            ))}
+              <ul className="dropdown-items">
+                <li
+                  className="dropdown-item"
+                  onClick={() => onButtonClick("popularMovies")}
+                  ref={menuRef}
+                >
+                  <div className="dropdown-item-content">
+                    <h4>The Hot stuff</h4>
+                    <p>Show me the most popular movies</p>
+                  </div>
+                  <FontAwesomeIcon icon={faArrowCircleUp} />
+                </li>
+                <li
+                  className="dropdown-item"
+                  onClick={() => onButtonClick("topRatedMovies")}
+                  ref={menuRef}
+                >
+                  <div className="dropdown-item-content">
+                    <h4>Only the best</h4>
+                    <p>Show me the top rated movies</p>
+                  </div>
+                  <FontAwesomeIcon icon={faStar} />
+                </li>
+                <Link to="/favorites">
+                  <li className="dropdown-item">
+                    <div className="dropdown-item-content">
+                      <h4>My Faves</h4>
+                      <p>Show me my favorite movies</p>
+                    </div>
+                    <FontAwesomeIcon icon={faHeart} />
+                  </li>
+                </Link>
+              </ul>
             </div>
-          
-
-          </div>
+          )}
         </ul>
       </nav>
     </header>
