@@ -8,6 +8,7 @@ import MovieCard from "../components/MovieCard.jsx";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import AddFavourites from "../components/AddFavourites.jsx";
+import {FavoriteProvider} from "../contexts/FavouritesContext.jsx";
 import "../App.css";
 
 const moviesURL = import.meta.env.VITE_API;
@@ -33,8 +34,24 @@ const Movie = () => {
   }, []);
 
 
+  const [favourites, setFavourites] = useState([]);
+
+  const updateFavoriteMovies = (id) => {
+    const  updatedFavourites = {...favourites};
+
+    const favoriteIndex = favourites
+  }
+
 
   return (
+
+    <FavoriteProvider
+    value={{
+      favoriteMovies: favourites,
+      updateFavoriteMovies: setFavourites}}
+    >
+   
+
     <section
       className="movie-page"
       style={{
@@ -101,6 +118,8 @@ const Movie = () => {
         </section>
       )}
     </section>
+
+      </FavoriteProvider>
   );
 };
 

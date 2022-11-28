@@ -18,6 +18,8 @@ const Home = () => {
   const [movieType, setMovieType] = useState("popularMovies");
 
 
+
+
   return (
     <>
       <Navbar setMovieType={setMovieType}/>
