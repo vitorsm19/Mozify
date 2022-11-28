@@ -5,7 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home.jsx";
 import Movie from "./Pages/Movie.jsx";
-import Favorites from "./Pages/Favorites.jsx";
+import Favourites from "./Pages/Favourites.jsx";
 
 function App() {
 

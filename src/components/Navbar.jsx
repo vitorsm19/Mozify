@@ -7,9 +7,10 @@ import {
   faSliders,
   faBars,
   faClose,
-  faArrowCircleUp,
-  faHeart,
+  faArrowCircleUp
 } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import {SplashIcon} from "../components/Splash.jsx";
 import MovieCard from "../components/MovieCard.jsx";
 
 import "../App.css";
@@ -35,13 +36,17 @@ const Navbar = ({ setMovieType }) => {
   return (
     <header id="header">
       <Link to="/">
-        <h3 className="logo">Mozify</h3>
-      </Link>
+        <div className="icon-logo"> 
+         <SplashIcon />
+         
+          <h3 className="logo-title">Mozify</h3>
+         </div>
+            </Link>
 
       <nav id="nav-bar">
         <ul className="nav__links">
           <li className="nav-link hidden-movie">
-            <Link to="/favorites">
+            <Link to="/favourites">
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
@@ -76,7 +81,7 @@ const Navbar = ({ setMovieType }) => {
                   </div>
                   <FontAwesomeIcon icon={faStar} />
                 </li>
-                <Link to="/favorites">
+                <Link to="/favourites">
                   <li className="dropdown-item">
                     <div className="dropdown-item-content">
                       <h4>My Faves</h4>
