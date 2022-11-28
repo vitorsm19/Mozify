@@ -7,9 +7,9 @@ import {
   faSliders,
   faBars,
   faClose,
-  faArrowCircleUp
+  faArrowCircleUp,
+  faHeart
 } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import {SplashIcon} from "../components/Splash.jsx";
 import MovieCard from "../components/MovieCard.jsx";
 

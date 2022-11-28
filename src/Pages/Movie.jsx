@@ -7,7 +7,7 @@ import { faClock, faCalendar, faHeart } from "@fortawesome/free-regular-svg-icon
 import MovieCard from "../components/MovieCard.jsx";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
-
+import AddFavourites from "../components/AddFavourites.jsx";
 import "../App.css";
 
 const moviesURL = import.meta.env.VITE_API;
@@ -32,6 +32,8 @@ const Movie = () => {
     getMovie(movieURL);
   }, []);
 
+
+
   return (
     <section
       className="movie-page"
@@ -54,9 +56,7 @@ const Movie = () => {
           <p>Go back</p>
         </Link>
 
-        <div className="add-favorite-mobile">
-          <FontAwesomeIcon icon={faHeart} />
-          </div>
+        <AddFavourites />
 
       </div>
       
@@ -72,10 +72,12 @@ const Movie = () => {
           <div className="movie-details">
             <span className="movie-title">
               {movie.title}
-              <span className="add-favorite">
+
+              <span className="add-favorite" >
                 <span>Add to favourites</span>
                <FontAwesomeIcon icon={faHeart} /> 
               </span>
+
             </span>
             {movie.tagline && <p className="movie-tagline">{movie.tagline}</p>}
             <p className="movie-overview">{movie.overview}</p>
