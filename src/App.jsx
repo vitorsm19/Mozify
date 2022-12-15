@@ -5,10 +5,9 @@ import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home.jsx";
 import Movie from "./Pages/Movie.jsx";
-import Favourites from "./Pages/Favourites.jsx";
+import Favorites from "./Pages/Favorites.jsx";
 
 function App() {
-
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -16,8 +15,6 @@ function App() {
       setLoading(false);
     }, 3000);
   }, []);
-
-  
 
   return (
     <div className="App">

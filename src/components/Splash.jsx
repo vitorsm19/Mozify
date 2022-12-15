@@ -2,7 +2,7 @@ import React from "react";
 
 function SplashIcon(props) {
   return (
-      <svg
+    <svg
       width={73}
       height={96}
       viewBox="0 0 73 96"
@@ -19,10 +19,7 @@ function SplashIcon(props) {
 }
 
 function SplashText() {
-  return (
-      
-      <h2 className="splash-text">Mozify</h2>
-  );
+  return <h2 className="splash-text">Mozify</h2>;
 }
 
 function Splash() {
@@ -34,4 +31,4 @@ function Splash() {
   );
 }
 
-export {SplashIcon, SplashText, Splash};
+export { SplashIcon, SplashText, Splash };

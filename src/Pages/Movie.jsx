@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faStar } from "@fortawesome/free-solid-svg-icons";
-import { faClock, faCalendar, faHeart } from "@fortawesome/free-regular-svg-icons";
+import {
+  faClock,
+  faCalendar,
+} from "@fortawesome/free-regular-svg-icons";
 import MovieCard from "../components/MovieCard.jsx";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
-import AddFavourites from "../components/AddFavourites.jsx";
-import {FavoriteProvider} from "../contexts/FavouritesContext.jsx";
+import AddFavorites from "../components/AddFavorites.jsx";
 import "../App.css";
 
 const moviesURL = import.meta.env.VITE_API;
@@ -33,25 +35,7 @@ const Movie = () => {
     getMovie(movieURL);
   }, []);
 
-
-  const [favourites, setFavourites] = useState([]);
-
-  const updateFavoriteMovies = (id) => {
-    const  updatedFavourites = {...favourites};
-
-    const favoriteIndex = favourites
-  }
-
-
   return (
-
-    <FavoriteProvider
-    value={{
-      favoriteMovies: favourites,
-      updateFavoriteMovies: setFavourites}}
-    >
-   
-
     <section
       className="movie-page"
       style={{
@@ -67,16 +51,15 @@ const Movie = () => {
       <Navbar />
 
       <div className="back">
-     
         <Link to="/">
           <FontAwesomeIcon icon={faAngleLeft} />
           <p>Go back</p>
         </Link>
 
-        <AddFavourites />
-
+        <div className="add-favorite-mobile">
+          <AddFavorites />
+        </div>
       </div>
-      
 
       {movie && (
         <section className="movie-container">
@@ -89,17 +72,15 @@ const Movie = () => {
           <div className="movie-details">
             <span className="movie-title">
               {movie.title}
-
-              <span className="add-favorite" >
-                <span>Add to favourites</span>
-               <FontAwesomeIcon icon={faHeart} /> 
+              <span className="add-favorite">
+                <AddFavorites />
               </span>
-
             </span>
             {movie.tagline && <p className="movie-tagline">{movie.tagline}</p>}
             <p className="movie-overview">{movie.overview}</p>
             <p className="movie-release-date">
-              <FontAwesomeIcon icon={faCalendar} /> {movie.release_date.toString().slice(0, 4)}
+              <FontAwesomeIcon icon={faCalendar} />{" "}
+              {movie.release_date.toString().slice(0, 4)}
             </p>
             <p className="movie-runtime">
               <FontAwesomeIcon icon={faClock} /> {movie.runtime}min
@@ -118,8 +99,6 @@ const Movie = () => {
         </section>
       )}
     </section>
-
-      </FavoriteProvider>
   );
 };
 

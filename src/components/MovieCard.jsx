@@ -2,26 +2,23 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../App.css";
-import Greeting from "../components/Greeting.jsx";
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 const moviesIMG = import.meta.env.VITE_IMG_CARDS;
 
-const MovieCard = ({movieType}) => {
+const MovieCard = ({ movieType }) => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const getTopRatedMovies = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
-
     setTopRatedMovies(data.results);
   };
 
   useEffect(() => {
     const topRatedMoviesURL = `${moviesURL}top_rated?${apiKey}&language=en-US`;
-
     getTopRatedMovies(topRatedMoviesURL);
   }, []);
 
@@ -29,21 +26,16 @@ const MovieCard = ({movieType}) => {
   const getPopularMovies = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
-
     setPopularMovies(data.results);
   };
 
   useEffect(() => {
     const popularMoviesURL = `${moviesURL}popular?${apiKey}&language=en-US`;
-
     getPopularMovies(popularMoviesURL);
   }, []);
 
-
-  
   return (
     <>
-
       {movieType === "popularMovies"
         ? popularMovies &&
           popularMovies.map((movie) => {
@@ -55,7 +47,6 @@ const MovieCard = ({movieType}) => {
                     alt="{movie.title}"
                   />
                 </div>
-
                 <Link to={`/movie/${movie.id}`} className="card-content">
                   <h4>{movie.title}</h4>
                   <div className="card-content-info">
@@ -81,7 +72,6 @@ const MovieCard = ({movieType}) => {
                     alt="{movie.title}"
                   />
                 </div>
-
                 <Link to={`/movie/${movie.id}`} className="card-content">
                   <h4>{movie.title}</h4>
                   <div className="card-content-info">
