@@ -18,6 +18,7 @@ function SplashIcon(props) {
   );
 }
 
+
 function SplashText() {
   return <h2 className="splash-text">Mozify</h2>;
 }
