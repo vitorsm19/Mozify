@@ -3,7 +3,7 @@ import { useState } from "react";
 import "../App.css";
 
 const Greeting = () => {
-  const [userName, setUserName] = useState("my future colleagues");
+  const [userName, setUserName] = useState("user");
 
   return (
     <section id="greeting">
@@ -16,3 +16,4 @@ const Greeting = () => {
 };
 
 export default Greeting;
+
