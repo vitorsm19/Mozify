@@ -38,7 +38,7 @@ const Navbar = ({ setMovieType }) => {
 
       <nav id="nav-bar">
         <ul className="nav__links">
-          <li className="nav-link hidden-movie">
+          <li className="nav-link">
             <Link to="/favorites">
               <FontAwesomeIcon icon={faHeart} />
             </Link>

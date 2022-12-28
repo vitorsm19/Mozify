@@ -3,10 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faStar } from "@fortawesome/free-solid-svg-icons";
-import {
-  faClock,
-  faCalendar,
-} from "@fortawesome/free-regular-svg-icons";
+import { faClock, faCalendar } from "@fortawesome/free-regular-svg-icons";
 import MovieCard from "../components/MovieCard.jsx";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
@@ -35,6 +32,9 @@ const Movie = () => {
     getMovie(movieURL);
   }, []);
 
+  const [isFavorited, setIsFavorited] = useState(false);
+
+
   return (
     <section
       className="movie-page"
@@ -56,9 +56,7 @@ const Movie = () => {
           <p>Go back</p>
         </Link>
 
-        <div className="add-favorite-mobile">
-          <AddFavorites />
-        </div>
+        <div className="add-favorite-mobile"></div>
       </div>
 
       {movie && (
@@ -73,7 +71,7 @@ const Movie = () => {
             <span className="movie-title">
               {movie.title}
               <span className="add-favorite">
-                <AddFavorites />
+                <AddFavorites movieId={movie.id} />
               </span>
             </span>
             {movie.tagline && <p className="movie-tagline">{movie.tagline}</p>}

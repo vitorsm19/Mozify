@@ -211,6 +211,37 @@ a:visited {
 }
 
 
+.fav-card{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: transparent;
+  gap: 0.25rem 0;
+}
+
+.fav-card a{
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  padding-right: 8px;
+}
+
+.fav-card a:hover{
+  color: red;
+}
+
+.fav-card > .card-content{
+  padding-right: 0;
+  height: 40px;
+}
+
 #greeting {
   display: flex;
   flex-direction: row;
@@ -324,7 +355,7 @@ a:visited {
   padding: 0 0.25rem;
 }
 
-.movie-page {
+.movie-page, .favorites-page {
   width: 100%;
   height: 100%;
   background-size: cover;

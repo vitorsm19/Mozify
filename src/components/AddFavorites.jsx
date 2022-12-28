@@ -1,9 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "../App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 const AddFavorites = ({ movieId }) => {
   const [isFavorited, setIsFavorited] = useState(false);
@@ -38,6 +37,15 @@ const AddFavorites = ({ movieId }) => {
       setIsFavorited(true);
     }
   };
+
+    // Check if the movie is already favorited when the component is mounted
+    useEffect(() => {
+      const favoritedMovie = localStorage.getItem(`favorite-${movieId}`);
+      if (favoritedMovie) {
+        setIsFavorited(true);
+      }
+    }, [movieId]);
+  
 
   return (
     <>
