@@ -34,7 +34,6 @@ const Movie = () => {
 
   const [isFavorited, setIsFavorited] = useState(false);
 
-
   return (
     <section
       className="movie-page"

@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
 const AddFavorites = ({ movieId }) => {
   const [isFavorited, setIsFavorited] = useState(false);
@@ -50,15 +50,13 @@ const AddFavorites = ({ movieId }) => {
   return (
     <>
       {isFavorited ? (
-        <span onClick={handleAddToFavorites}>
-          Remove from favorites
-          <FontAwesomeIcon icon={faClose} />
-        </span>
+        <a onClick={handleAddToFavorites}>
+          <FontAwesomeIcon icon={fasHeart} />
+        </a>
       ) : (
-        <span onClick={handleAddToFavorites}>
-          Add to favorites
-          <FontAwesomeIcon icon={faHeart} />
-        </span>
+        <a onClick={handleAddToFavorites}>
+          <FontAwesomeIcon icon={farHeart} />
+        </a>
       )}
     </>
   );

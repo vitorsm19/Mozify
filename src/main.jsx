@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import App from "./App";
 import Home from "../src/Pages/Home.jsx";
 import Movie from "../src/Pages/Movie.jsx";

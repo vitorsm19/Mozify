@@ -472,7 +472,7 @@ a:visited {
   padding-left: .5rem;
 }
 
-.add-favorite-mobile span {
+/* .add-favorite-mobile span {
   display: none;
   font-size: 1rem;
   align-items: center;
@@ -486,7 +486,7 @@ a:visited {
   color: #FFFFFF;
   cursor: pointer;
   padding-left: .5rem;
-}
+} */
 
 .movie-genres {
   display: flex;
@@ -521,7 +521,7 @@ a:visited {
 @media only screen and (max-width: 767px) {
 
   .movie-poster,
-  .add-favorite {
+  .add-favorite span  {
     display: none;
   }
 
