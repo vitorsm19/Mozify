@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +8,6 @@ import {
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { SplashIcon } from "../components/Splash.jsx";
-import MovieCard from "../components/MovieCard.jsx";
 
 import "../App.css";
 
@@ -38,7 +36,7 @@ const Navbar = ({ setMovieType }) => {
 
       <nav id="nav-bar">
         <ul className="nav__links">
-          <li className="nav-link hidden-movie" >
+          <li className="nav-link hidden-movie">
             <Link to="/favorites">
               <FontAwesomeIcon icon={faHeart} />
             </Link>

@@ -1,5 +1,3 @@
-import React from "react";
-
 function SplashIcon(props) {
   return (
     <svg
@@ -17,7 +15,6 @@ function SplashIcon(props) {
     </svg>
   );
 }
-
 
 function SplashText() {
   return <h2 className="splash-text">Mozify</h2>;

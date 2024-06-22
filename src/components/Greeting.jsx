@@ -1,14 +1,10 @@
-import React from "react";
-import { useState } from "react";
 import "../App.css";
 
 const Greeting = () => {
-  const [userName, setUserName] = useState("user");
-
   return (
     <section id="greeting">
       <div>
-        <h3 className="greeting-title">Hello, {userName}!</h3>
+        <h3 className="greeting-title">Hello, user!</h3>
         <span className="greeting-subtitle">Check these movies out</span>
       </div>
     </section>
@@ -16,4 +12,3 @@ const Greeting = () => {
 };
 
 export default Greeting;
-

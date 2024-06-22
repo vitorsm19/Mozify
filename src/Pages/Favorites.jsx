@@ -1,6 +1,5 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
-import MovieCard from "../components/MovieCard.jsx";
 import Navbar from "../components/Navbar.jsx";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,10 +8,9 @@ import { faAngleLeft, faClose } from "@fortawesome/free-solid-svg-icons";
 const moviesImgPoster = import.meta.env.VITE_IMG_CARDS;
 
 const Favorites = () => {
-  const [favorites, setFavorites] = React.useState([]);
+  const [favorites, setFavorites] = useState([]);
 
-  // Fetch the list of favorites from LocalStorage when the component is mounted
-  React.useEffect(() => {
+  useEffect(() => {
     const favoriteKeys = Object.keys(localStorage).filter((key) =>
       key.startsWith("favorite-")
     );
@@ -22,7 +20,6 @@ const Favorites = () => {
     setFavorites(favoriteMovies);
   }, []);
 
-  // Remove the movie from LocalStorage when the "Remove" button is clicked
   const handleRemoveFromFavorites = (movieId) => {
     localStorage.removeItem(`favorite-${movieId}`);
     setFavorites(favorites.filter((movie) => movie.id !== movieId));
@@ -47,12 +44,10 @@ const Favorites = () => {
               />
             </div>
             <div className="fav-card">
-            <Link to={`/movie/${favorite.id}`} className="card-content">
+              <Link to={`/movie/${favorite.id}`} className="card-content">
                 <h4>{favorite.title}</h4>
               </Link>
-              <a
-                onClick={() => handleRemoveFromFavorites(favorite.id)}
-              >
+              <a onClick={() => handleRemoveFromFavorites(favorite.id)}>
                 <FontAwesomeIcon icon={faClose} />
               </a>
             </div>
