@@ -28,9 +28,11 @@ const MovieCard = ({ movieType }) => {
     <>
       {movies.map((movie) => (
         <div className="movie-card" key={movie.id}>
-          <div className="card-image">
-            <img src={`${moviesIMG}${movie.poster_path}`} alt={movie.title} />
-          </div>
+          <Link to={`/movie/${movie.id}`}>
+            <div className="card-image">
+              <img src={`${moviesIMG}${movie.poster_path}`} alt={movie.title} />
+            </div>
+          </Link>
           <Link to={`/movie/${movie.id}`} className="card-content">
             <h4>{movie.title}</h4>
             <div className="card-content-info">
