@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
-import { SplashIcon, SplashText, Splash } from "./components/Splash.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, Outlet } from "react-router-dom";
+import { Splash } from "./components/Splash.jsx";
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import Home from "./Pages/Home.jsx";
-import Movie from "./Pages/Movie.jsx";
-import Favorites from "./Pages/Favorites.jsx";
 
 function App() {
   const [loading, setLoading] = useState(false);

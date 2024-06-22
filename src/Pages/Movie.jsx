@@ -1,10 +1,8 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faClock, faCalendar } from "@fortawesome/free-regular-svg-icons";
-import MovieCard from "../components/MovieCard.jsx";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import AddFavorites from "../components/AddFavorites.jsx";
@@ -31,8 +29,6 @@ const Movie = () => {
     const movieURL = `${moviesURL}${id}?${apiKey}&language`;
     getMovie(movieURL);
   }, []);
-
-  const [isFavorited, setIsFavorited] = useState(false);
 
   return (
     <section
